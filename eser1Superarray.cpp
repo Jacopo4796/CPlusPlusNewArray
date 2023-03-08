@@ -164,15 +164,16 @@ int *rimuoviTuttiElementi(int arrayBase[], int lungBase, int elemento) // Rimuov
         }
         int *newArray = new int[lungBase - volteElemento]; // Creo un nuovo array e ne definisco la lunghezza
         int i = 0;
-        while (arrayBase[i] != elemento) // Finché "i" dell'array di base è diverso da "elemento"
+        int j = 0;
+        while (i < lungBase) // Finché "i" è minore della lunghezza dell'array di base
         {
-            newArray[i] = arrayBase[i]; // Metto dentro il nuovo array i valori di array di base
-            i++;                        // Incremento l'indice
-        }
-        while (i < lungBase - volteElemento) // Finché "i" è minore della lunghezza dell'array di base
-        {
-            newArray[i] = arrayBase[i + volteElemento]; // Metto dentro il nuovo array i valori di array di base saltando "elemento"
-            i++;                                        // Incremento l'indice
+            while (arrayBase[i] != elemento) // Finché "i" dell'array di base è diverso da "elemento"
+            {
+                newArray[j] = arrayBase[i]; // Metto dentro il nuovo array i valori di array di base
+                i++;                        // Incremento l'indice
+                j++;                        // Incremento l'indice
+            }
+            i++; // Incremento l'indice
         }
         cout << "Tutti gli elementi " << elemento << " sono stati rimossi dall'array. \n";
         for (int i = 0; i < lungBase - volteElemento; i++) // Scorro la lunghezza dell'array
@@ -185,7 +186,7 @@ int *rimuoviTuttiElementi(int arrayBase[], int lungBase, int elemento) // Rimuov
 
 int main()
 {
-    int arrayBase[] = {1, 2, 3, 3, 5};
+    int arrayBase[] = {1, 2, 3, 4, 3};
     int lungBase = sizeof(arrayBase) / sizeof(arrayBase[0]);
     int numb = 6;      // Numero da aggiungere all'array
     int posizione = 2; // Posizione dentro l'array
