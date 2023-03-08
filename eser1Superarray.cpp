@@ -140,11 +140,11 @@ int main()
 {
     int arrayBase[] = {1, 2, 3, 4, 5};
     int lungBase = sizeof(arrayBase) / sizeof(arrayBase[0]);
-    int numb = 6;
+    int numb = 6; // Numero da aggiungere
     int posizione = 2;
-    int cerca = 5;
-    int valore = 99;
-    int elemento = 3;
+    int cerca = 5;    // Numero da cercare
+    int valore = 99;  // Valore che sostituirà un certo numero
+    int elemento = 3; // Elemento da rimuovere
 
     int *newArray = aggiungiInFondo(arrayBase, lungBase, numb);
     int *newarray1 = aggiungiInTesta(arrayBase, lungBase, numb);
